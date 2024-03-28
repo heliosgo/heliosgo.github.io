@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="RESTful 服务 基本概念 维基百科: https://zh.wikipedia.org/wiki/%E8%A1%A8%E7%8E%B0%E5%B1%82%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2 表现层状态转换（英语：Representational State Transfer，缩写：REST）是 Roy Thomas Fielding 博士于2000年在他的博士论文中提出来的一种万维网软件架构风格，目的是便于不同软件/程序在网络 （例如互联网）中互相传递信息。表现层状态转换是根基于超文本传输协议（HTTP）之上而确定的一组约束和属性， 是一种设计提供万维网络服务的软件构建风格。符合或兼容于这种架构风格（简称为 REST 或 RESTful） 的网络服务，允许客户端发出以统一资源标识符访问和操作网络资源的请求，而与预先定义好的无状态操作集一致化。 因此表现层状态转换提供了在互联网络的计算系统之间，彼此资源可交互使用的协作性质（interoperability）。 资源(Resource) 当你在阅读这篇文章时候，文章内容本身就是一种资源，不管是在电脑，还是手机上，尽管看到的表现形式不同，但看到的都是同一篇文章。 表征(Representation) 表征其实就是表现形式，表示出来的样子，就像在浏览器上请求阅读这篇文章的时候，你拿到的是服务器返回的 HTML，或者将这篇文章打印出来，拿到的就是一张纸。这些都是同一个资源的多种表征。 状态(State) 在阅读文章时，通常会有下一篇，上一篇的按钮。如果我们想要向服务器请求下一篇文章，那么服务器就要知道当前文章，因为“下一篇”是一个相对的 概念，状态不是一个独立的概念，而是基于一个语境，某一时刻的样子。 状态又分为有状态(Stateful)和无状态(Stateless)，都是相对于服务端来说的。服务端记住状态就是有状态，客户端记住状态就是无状态。 而 REST 其中的一个原则就是无状态原则。 转移(Transfer) 不管是有状态还是无状态，获取下一篇文章这个动作都只能由服务端来完成。服务器通过某种方式，把“用户当前阅读的文章”转变成“下一篇文章”， 这就被称为“表征状态转移”。表征状态转移是由浏览器主动向服务器请求引发的，该请求导致了“在屏幕上显示出了下一篇文章的内容”。但这不是 浏览器的意图，浏览器是通过服务器响应的超文本来驱动状态转移的。 REST 的六个原则 服务端与客户端分离(Client-Server) 用户界面关注点和数据存储关注点的分离可以提高用户界面在多个平台的可移植性。 无状态(Stateless) REST 希望从客户端发出的每个请求都必须包含所有的信息，服务端不能保存客户端的任何上下文信息，服务端通过客户端发送的状态信息来进行业务处理。 可缓存(Cacheability) 因为无状态的特性，为完成某个功能可能就需要多次请求，或者在请求中携带冗余的信息。为了缓解该情况，服务端的响应必须明确地或隐含地定义自身 是否可以被缓存。如果是响应是可缓存的，那么客户端缓存可以重用以前的响应以改进效率和可伸缩性。 统一接口(Uniform Interface) 为了得到统一的接口，REST 希望开发者面向资源编程，把软件系统设计的重点放在抽象系统该有哪些资源上，而不是抽象系统有哪些行为上。 分层系统(Layered System) 这里所指的分层并不是表示层、服务层、持久层这种意义上的分层，而是指客户端不能知道它是与最终服务器还是中间服务器进行交互。 中间服务器可以提供负载均衡和共享缓存的机制，提高系统的可扩展性。 按需代码(Code-On-Demand) 按需代码是一条可选的原则，指的是任何按照客户端的请求，将可执行的软件程序从服务器发送到客户端的技术。比如 JavaScript。 什么样的服务才能叫 RESTful？ Leonard Richardson 曾经提出过一个 REST 服务成熟度模型，在这个模型里，从低到高分为 0 至 3 共 4 级： The Swamp of POX：完全不 REST。 Resources：开始引入资源的概念。 HTTP Verbs：引入统一接口，映射到 HTTP 协议的方法上。 Hypermedia Controls：超文本驱动。 Martin Fowler 在一篇文章中通过一个实际例子来描述了在该模型下，实际的 API 是怎样的。">
-<title>Rest</title>
+<title>RESTful 服务</title>
 
-<link rel='canonical' href='http://localhost:1313/p/rest/'>
+<link rel='canonical' href='https://heliosgo.github.io/p/restful-%E6%9C%8D%E5%8A%A1/'>
 
-<link rel="stylesheet" href="/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="Rest">
+<link rel="stylesheet" href="/scss/style.min.d8118f156935b64eca93aca758476adca858d2c47354971654d9bd2933a0e45f.css"><meta property='og:title' content="RESTful 服务">
 <meta property='og:description' content="RESTful 服务 基本概念 维基百科: https://zh.wikipedia.org/wiki/%E8%A1%A8%E7%8E%B0%E5%B1%82%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2 表现层状态转换（英语：Representational State Transfer，缩写：REST）是 Roy Thomas Fielding 博士于2000年在他的博士论文中提出来的一种万维网软件架构风格，目的是便于不同软件/程序在网络 （例如互联网）中互相传递信息。表现层状态转换是根基于超文本传输协议（HTTP）之上而确定的一组约束和属性， 是一种设计提供万维网络服务的软件构建风格。符合或兼容于这种架构风格（简称为 REST 或 RESTful） 的网络服务，允许客户端发出以统一资源标识符访问和操作网络资源的请求，而与预先定义好的无状态操作集一致化。 因此表现层状态转换提供了在互联网络的计算系统之间，彼此资源可交互使用的协作性质（interoperability）。 资源(Resource) 当你在阅读这篇文章时候，文章内容本身就是一种资源，不管是在电脑，还是手机上，尽管看到的表现形式不同，但看到的都是同一篇文章。 表征(Representation) 表征其实就是表现形式，表示出来的样子，就像在浏览器上请求阅读这篇文章的时候，你拿到的是服务器返回的 HTML，或者将这篇文章打印出来，拿到的就是一张纸。这些都是同一个资源的多种表征。 状态(State) 在阅读文章时，通常会有下一篇，上一篇的按钮。如果我们想要向服务器请求下一篇文章，那么服务器就要知道当前文章，因为“下一篇”是一个相对的 概念，状态不是一个独立的概念，而是基于一个语境，某一时刻的样子。 状态又分为有状态(Stateful)和无状态(Stateless)，都是相对于服务端来说的。服务端记住状态就是有状态，客户端记住状态就是无状态。 而 REST 其中的一个原则就是无状态原则。 转移(Transfer) 不管是有状态还是无状态，获取下一篇文章这个动作都只能由服务端来完成。服务器通过某种方式，把“用户当前阅读的文章”转变成“下一篇文章”， 这就被称为“表征状态转移”。表征状态转移是由浏览器主动向服务器请求引发的，该请求导致了“在屏幕上显示出了下一篇文章的内容”。但这不是 浏览器的意图，浏览器是通过服务器响应的超文本来驱动状态转移的。 REST 的六个原则 服务端与客户端分离(Client-Server) 用户界面关注点和数据存储关注点的分离可以提高用户界面在多个平台的可移植性。 无状态(Stateless) REST 希望从客户端发出的每个请求都必须包含所有的信息，服务端不能保存客户端的任何上下文信息，服务端通过客户端发送的状态信息来进行业务处理。 可缓存(Cacheability) 因为无状态的特性，为完成某个功能可能就需要多次请求，或者在请求中携带冗余的信息。为了缓解该情况，服务端的响应必须明确地或隐含地定义自身 是否可以被缓存。如果是响应是可缓存的，那么客户端缓存可以重用以前的响应以改进效率和可伸缩性。 统一接口(Uniform Interface) 为了得到统一的接口，REST 希望开发者面向资源编程，把软件系统设计的重点放在抽象系统该有哪些资源上，而不是抽象系统有哪些行为上。 分层系统(Layered System) 这里所指的分层并不是表示层、服务层、持久层这种意义上的分层，而是指客户端不能知道它是与最终服务器还是中间服务器进行交互。 中间服务器可以提供负载均衡和共享缓存的机制，提高系统的可扩展性。 按需代码(Code-On-Demand) 按需代码是一条可选的原则，指的是任何按照客户端的请求，将可执行的软件程序从服务器发送到客户端的技术。比如 JavaScript。 什么样的服务才能叫 RESTful？ Leonard Richardson 曾经提出过一个 REST 服务成熟度模型，在这个模型里，从低到高分为 0 至 3 共 4 级： The Swamp of POX：完全不 REST。 Resources：开始引入资源的概念。 HTTP Verbs：引入统一接口，映射到 HTTP 协议的方法上。 Hypermedia Controls：超文本驱动。 Martin Fowler 在一篇文章中通过一个实际例子来描述了在该模型下，实际的 API 是怎样的。">
-<meta property='og:url' content='http://localhost:1313/p/rest/'>
+<meta property='og:url' content='https://heliosgo.github.io/p/restful-%E6%9C%8D%E5%8A%A1/'>
 <meta property='og:site_name' content='Example Site'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-03-27T22:53:36&#43;08:00'/><meta property='article:modified_time' content='2024-03-27T22:53:36&#43;08:00'/>
-<meta name="twitter:title" content="Rest">
+<meta name="twitter:title" content="RESTful 服务">
 <meta name="twitter:description" content="RESTful 服务 基本概念 维基百科: https://zh.wikipedia.org/wiki/%E8%A1%A8%E7%8E%B0%E5%B1%82%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2 表现层状态转换（英语：Representational State Transfer，缩写：REST）是 Roy Thomas Fielding 博士于2000年在他的博士论文中提出来的一种万维网软件架构风格，目的是便于不同软件/程序在网络 （例如互联网）中互相传递信息。表现层状态转换是根基于超文本传输协议（HTTP）之上而确定的一组约束和属性， 是一种设计提供万维网络服务的软件构建风格。符合或兼容于这种架构风格（简称为 REST 或 RESTful） 的网络服务，允许客户端发出以统一资源标识符访问和操作网络资源的请求，而与预先定义好的无状态操作集一致化。 因此表现层状态转换提供了在互联网络的计算系统之间，彼此资源可交互使用的协作性质（interoperability）。 资源(Resource) 当你在阅读这篇文章时候，文章内容本身就是一种资源，不管是在电脑，还是手机上，尽管看到的表现形式不同，但看到的都是同一篇文章。 表征(Representation) 表征其实就是表现形式，表示出来的样子，就像在浏览器上请求阅读这篇文章的时候，你拿到的是服务器返回的 HTML，或者将这篇文章打印出来，拿到的就是一张纸。这些都是同一个资源的多种表征。 状态(State) 在阅读文章时，通常会有下一篇，上一篇的按钮。如果我们想要向服务器请求下一篇文章，那么服务器就要知道当前文章，因为“下一篇”是一个相对的 概念，状态不是一个独立的概念，而是基于一个语境，某一时刻的样子。 状态又分为有状态(Stateful)和无状态(Stateless)，都是相对于服务端来说的。服务端记住状态就是有状态，客户端记住状态就是无状态。 而 REST 其中的一个原则就是无状态原则。 转移(Transfer) 不管是有状态还是无状态，获取下一篇文章这个动作都只能由服务端来完成。服务器通过某种方式，把“用户当前阅读的文章”转变成“下一篇文章”， 这就被称为“表征状态转移”。表征状态转移是由浏览器主动向服务器请求引发的，该请求导致了“在屏幕上显示出了下一篇文章的内容”。但这不是 浏览器的意图，浏览器是通过服务器响应的超文本来驱动状态转移的。 REST 的六个原则 服务端与客户端分离(Client-Server) 用户界面关注点和数据存储关注点的分离可以提高用户界面在多个平台的可移植性。 无状态(Stateless) REST 希望从客户端发出的每个请求都必须包含所有的信息，服务端不能保存客户端的任何上下文信息，服务端通过客户端发送的状态信息来进行业务处理。 可缓存(Cacheability) 因为无状态的特性，为完成某个功能可能就需要多次请求，或者在请求中携带冗余的信息。为了缓解该情况，服务端的响应必须明确地或隐含地定义自身 是否可以被缓存。如果是响应是可缓存的，那么客户端缓存可以重用以前的响应以改进效率和可伸缩性。 统一接口(Uniform Interface) 为了得到统一的接口，REST 希望开发者面向资源编程，把软件系统设计的重点放在抽象系统该有哪些资源上，而不是抽象系统有哪些行为上。 分层系统(Layered System) 这里所指的分层并不是表示层、服务层、持久层这种意义上的分层，而是指客户端不能知道它是与最终服务器还是中间服务器进行交互。 中间服务器可以提供负载均衡和共享缓存的机制，提高系统的可扩展性。 按需代码(Code-On-Demand) 按需代码是一条可选的原则，指的是任何按照客户端的请求，将可执行的软件程序从服务器发送到客户端的技术。比如 JavaScript。 什么样的服务才能叫 RESTful？ Leonard Richardson 曾经提出过一个 REST 服务成熟度模型，在这个模型里，从低到高分为 0 至 3 共 4 级： The Swamp of POX：完全不 REST。 Resources：开始引入资源的概念。 HTTP Verbs：引入统一接口，映射到 HTTP 协议的方法上。 Hypermedia Controls：超文本驱动。 Martin Fowler 在一篇文章中通过一个实际例子来描述了在该模型下，实际的 API 是怎样的。">
     </head>
     <body class="
@@ -231,9 +231,9 @@
 
                             <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
                                 
-                                    <option value="http://localhost:1313/" selected>English</option>
+                                    <option value="https://heliosgo.github.io/" selected>English</option>
                                 
-                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                    <option value="https://heliosgo.github.io/zh-cn/" >中文</option>
                                 
                             </select>
                         </li>
@@ -317,7 +317,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/rest/">Rest</a>
+            <a href="/p/restful-%E6%9C%8D%E5%8A%A1/">RESTful 服务</a>
         </h2>
     
         
@@ -443,10 +443,10 @@ REST
 <li>HTTP Verbs：引入统一接口，映射到 HTTP 协议的方法上。</li>
 <li>Hypermedia Controls：超文本驱动。</li>
 </ol>
-<p><img src="/p/rest/overview.png"
+<p><img src="/p/restful-%E6%9C%8D%E5%8A%A1/overview.png"
 	width="673"
 	height="398"
-	srcset="/p/rest/overview_hu7877190ca10ebf75294f96bd5f533847_49154_480x0_resize_box_3.png 480w, /p/rest/overview_hu7877190ca10ebf75294f96bd5f533847_49154_1024x0_resize_box_3.png 1024w"
+	srcset="/p/restful-%E6%9C%8D%E5%8A%A1/overview_hu7877190ca10ebf75294f96bd5f533847_49154_480x0_resize_box_3.png 480w, /p/restful-%E6%9C%8D%E5%8A%A1/overview_hu7877190ca10ebf75294f96bd5f533847_49154_1024x0_resize_box_3.png 1024w"
 	loading="lazy"
 	
 	
